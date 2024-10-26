@@ -11,6 +11,8 @@ The project’s goals include:
 - Engineering meaningful features from raw data to improve model performance.
 
 ## Project Structure
+- **Frames Folder** shows the frames that week 1 csv file has outputted
+
 
 ## Technologies Used
 - **Python** for data processing and modeling.
