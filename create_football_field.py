@@ -43,7 +43,7 @@ def plot_player_position(ax, x, y, player_number=None):
     if player_number is not None:
         ax.text(x, y, str(player_number), color='white', ha='center', va='center', fontsize=12, fontweight='bold', zorder=4)
 
-# Example usage
+# Example 
 fig, ax = create_football_field()
 
 # Example player positions
@@ -59,7 +59,7 @@ player_positions = [
 for player in player_positions:
     plot_player_position(ax, player['x'], player['y'], player['nflid'])
 
-# Show the plot
+
 plt.show()
 
 

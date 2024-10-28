@@ -7,13 +7,11 @@ def create_football_field(ax):
     # Create the football field rectangle
     field = patches.Rectangle((0, 0), 120, 53.3, linewidth=2, edgecolor='green', facecolor='green', zorder=0)
     ax.add_patch(field)
-
     # Draw the yard lines (every 10 yards)
     for yard in range(0, 121, 10):
         plt.axvline(x=yard, color='white', linestyle='--', lw=1.5, zorder=1)
         ax.text(yard, 53.5, str(yard), ha='center', va='center', fontsize=10, color='white', zorder=2)
 
-    # Set axis limits and labels
     ax.set_xlim(0, 120)
     ax.set_ylim(0, 53.3)
     ax.set_xticks([])
@@ -24,11 +22,11 @@ def plot_player_position(ax, x, y, player_number):
     ax.scatter(x, y, color='red', s=100, zorder=3)
     ax.text(x, y, str(player_number), color='white', ha='center', va='center', fontsize=12, fontweight='bold', zorder=4)
 
-# Create a figure for the animation
+
 fig, ax = plt.subplots(figsize=(10, 5.5))
 create_football_field(ax)
 
-# Define player movement
+# player movement
 player_positions = [
     {'x': 51.06, 'y': 28.55, 'nflid': 35459},
     {'x': 50, 'y': 30, 'nflid': 2},
@@ -36,16 +34,15 @@ player_positions = [
     {'x': 110, 'y': 40, 'nflid': 4}
 ]
 
-# Create a list to store frames
+
 frames = []
 
 # Simulate the player movement over 20 frames
 for t in range(20):
-    # Clear the axis for new drawing
     ax.cla()
     create_football_field(ax)
 
-    # Update player positions (example movement)
+    # Update player positions 
     for player in player_positions:
         player['x'] += 5  # Move the player to the right
         plot_player_position(ax, player['x'], player['y'], player['nflid'])
@@ -59,8 +56,6 @@ for t in range(20):
     
     # Save the figure to a temporary file
     plt.savefig('temp_frame.png')
-    
-
     # Append the frame to the list
     frames.append(imageio.imread('temp_frame.png'))
 
